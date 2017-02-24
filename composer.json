@@ -1,0 +1,15 @@
+{
+  "name":         "webjaros/symfony-log-reader-bundle",
+  "description":  "Parses Symfony 3 log and saves to database via ORM.",
+  "keywords":     ["symfony", "log"],
+  "type":         "symfony-bundle",
+  "license":      "MIT",
+  "authors":      [
+    {
+      "name":     "Jaroslavs Kuprijanovs"
+    }
+  ],
+  "require":      {
+    "symfony/framework-bundle": "~3.0"
+  }
+}
