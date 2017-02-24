@@ -9,7 +9,7 @@
 
 **Enable the Bundle**
 
-`
+```
 // app/AppKernel.php
 // ...
 class AppKernel extends Kernel
@@ -24,26 +24,30 @@ class AppKernel extends Kernel
     }
     // ...
 }
-`
+```
 
 **Migration**
 
-`bin/console doctrine:migration:generate`
+```
+bin/console doctrine:migration:generate
+php bin/console doctrine:schema:update --dump-sql
+```
 
-`php bin/console doctrine:schema:update --dump-sql`
+Copy
+```
+CREATE TABLE webjaros_symfony_log_record ....
+```
 
-Search for
-`CREATE TABLE webjaros_symfony_log_record ....`
+Include this query to your newly generated migrations file and run
 
-Include this query to your migrations file and run
-`bin/console doctrine:migration:migrate`
+```bin/console doctrine:migration:migrate```
 
 **Sonata Admin**
 Default action is just to import services.yml from the bundle:
-`
+```
 // app/config/services.yml
 - { resource: '@WebJarosSymfonyLogReaderBundle/Resources/config/services.yml' }
 //...
-`
+```
 
-Extend WebJaros\SymfonyLogReaderBundle\Admin\RecordAdmin and define your own service for advanced actions.
+Extend `WebJaros\SymfonyLogReaderBundle\Admin\RecordAdmin` and define your own service for advanced actions.
