@@ -28,6 +28,7 @@ class AppKernel extends Kernel
 
 **Migration**
 
+Run
 ```
 bin/console doctrine:migration:generate
 php bin/console doctrine:schema:update --dump-sql
@@ -39,10 +40,19 @@ CREATE TABLE webjaros_symfony_log_record ....
 ```
 
 Include this query to your newly generated migrations file and run
+```
+bin/console doctrine:migration:migrate
+```
 
-```bin/console doctrine:migration:migrate```
+**Schedule**
+
+Use your favorite cron manager
+```
+* * * * * $pathToTheApp/bin/console webjaros:symfony-log
+```
 
 **Sonata Admin**
+
 Default action is just to import services.yml from the bundle:
 ```
 // app/config/services.yml
