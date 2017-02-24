@@ -1,4 +1,6 @@
 services:
-    webjaros_symfony_log_reader.file_parser:
-        class: WebJaros\SymfonyLogReaderBundle\Parser\FileParser
-        arguments: ['@service_container']
+    webjaros_symfony_log_reader.record_admin:
+        class: WebJaros\SymfonyLogReaderBundle\Admin\RecordAdmin
+        arguments: [~, WebJaros\SymfonyLogReaderBundle\Entity\Record, SonataAdminBundle:CRUD]
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: admin, label: Symfony Logs }
