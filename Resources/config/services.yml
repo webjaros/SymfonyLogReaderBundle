@@ -1,0 +1,4 @@
+services:
+    webjaros_symfony_log_reader.file_parser:
+        class: WebJaros\SymfonyLogReaderBundle\Parser\FileParser
+        arguments: ['@service_container']
