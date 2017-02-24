@@ -1,4 +1,5 @@
 **Motivation**
+
 1. In many cases there is no possibility to access logs via console in prod environment
 2. Databases provides easy filtering and search
 3. Web provides more human readable look
