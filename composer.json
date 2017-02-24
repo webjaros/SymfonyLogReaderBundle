@@ -10,7 +10,9 @@
     }
   ],
   "require":      {
-    "symfony/framework-bundle": "~3.0"
+    "symfony/framework-bundle": "3.*",
+    "sonata-project/admin-bundle": "3.*",
+    "sonata-project/doctrine-orm-admin-bundle": "3.*"
   },
   "autoload":     {
     "psr-4": { "WebJaros\\SymfonyLogReaderBundle\\": "" }
