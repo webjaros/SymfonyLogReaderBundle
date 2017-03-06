@@ -7,7 +7,15 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * Record
  *
- * @ORM\Table(name="webjaros_symfony_log_record")
+ * @ORM\Table(
+ *     name="webjaros_symfony_log_record",
+ *     indexes={
+ *         @ORM\Index(
+ *             name="channel_level_index",
+ *             columns={"channel", "level"}
+ *         )
+ *     }
+ * )
  * @ORM\Entity(repositoryClass="WebJaros\SymfonyLogReaderBundle\Repository\RecordRepository")
  */
 class Record
@@ -156,4 +164,3 @@ class Record
         return $this->createdAt;
     }
 }
-
