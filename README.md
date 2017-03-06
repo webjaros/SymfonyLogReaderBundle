@@ -53,6 +53,7 @@ Use your favorite cron manager
 ```
 * * * * * $pathToTheApp/bin/console webjaros:symfony-log
 ```
+Do not forget to add `--env=prod` for production environment.
 
 **Sonata Admin**
 
