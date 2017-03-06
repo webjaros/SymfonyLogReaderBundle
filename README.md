@@ -6,7 +6,9 @@
 
 **Installation**
 
-`composer require webjaros/symfony-log-reader-bundle "0.*"`
+```composer require webjaros/symfony-log-reader-bundle "0.*"```
+
+This will also install Sonata Admin Bundle (if not yet installed). You have to make basic configuration of Sonata.
 
 **Enable the Bundle**
 
