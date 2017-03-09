@@ -25,6 +25,7 @@ class SymfonyLogCommand extends ContainerAwareCommand
     protected function execute(InputInterface $input, OutputInterface $output)
     {
         $fileParser = new FileParser();
+
         $fileParser->setPath(
             $this->getContainer()->get('kernel')->getLogDir()
             . DIRECTORY_SEPARATOR
@@ -33,9 +34,16 @@ class SymfonyLogCommand extends ContainerAwareCommand
         );
 
         $entityManager = $this->getContainer()->get('doctrine')->getManager();
-        foreach ($fileParser->parseAndReturn() as $record) {
-            $entityManager->persist($record);
+
+        try {
+            foreach ($fileParser->parseAndReturn() as $record) {
+                $entityManager->persist($record);
+            }
+        } catch (\Exception $exception) {
+            $output->writeln($exception->getMessage());
+            exit;
         }
+
         $entityManager->flush();
     }
 

@@ -13,9 +13,15 @@ class FileParser
 
     public function parseAndReturn()
     {
+        $fileContents = file_get_contents($this->path);
+
+        if (false === $fileContents) {
+            throw new \Exception('Could not read the file');
+        }
+
         $lines = explode(
             PHP_EOL,
-            file_get_contents($this->path)
+            $fileContents
         );
 
         $this->emptyFile();
@@ -49,7 +55,9 @@ class FileParser
 
     private function emptyFile()
     {
-        file_put_contents($this->path, '');
+        if (false === file_put_contents($this->path, '', LOCK_EX)) {
+            throw new \Exception('Could not write the file');
+        }
     }
 
 }
